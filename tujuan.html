@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tujuan Pembelajaran - Media Pembelajaran Informatika</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --biru-tua: #0a192f;
+            --biru-muda: #172a45;
+            --biru-tekno: #4da6ff;
+            --biru-highlight: #64b5f6;
+            --putih: #e6f1ff;
+            --abu-abu: #8892b0;
+            --transisi: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--biru-tua), #050c15);
+            color: var(--putih);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.2rem;
+            color: var(--biru-tekno);
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--biru-tekno), var(--biru-highlight));
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        .nav-item a {
+            color: var(--putih);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: var(--transisi);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-item a:hover, .nav-item a.active {
+            background: rgba(77, 166, 255, 0.15);
+            color: var(--biru-tekno);
+        }
+        
+        .nav-item a i {
+            font-size: 1.1rem;
+        }
+        
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--putih);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        main {
+            padding: 120px 0 80px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h1::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: var(--biru-tekno);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            color: var(--abu-abu);
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+        
+        .tujuan-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .tujuan-card {
+            background: rgba(23, 42, 69, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            transition: var(--transisi);
+            border: 1px solid rgba(77, 166, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        
+        .tujuan-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--biru-tekno);
+        }
+        
+        .tujuan-icon {
+            font-size: 3rem;
+            color: var(--biru-tekno);
+            margin-bottom: 20px;
+        }
+        
+        .tujuan-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--biru-highlight);
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: rgba(77, 166, 255, 0.2);
+            color: var(--biru-tekno);
+            padding: 8px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transisi);
+        }
+        
+        .back-btn:hover {
+            background: rgba(77, 166, 255, 0.3);
+            transform: translateX(-5px);
+        }
+        
+        footer {
+            background: rgba(10, 25, 47, 0.95);
+            padding: 40px 0 20px;
+            text-align: center;
+            margin-top: 50px;
+            border-top: 1px solid rgba(77, 166, 255, 0.3);
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--biru-tekno);
+        }
+        
+        .copyright {
+            color: var(--abu-abu);
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(100, 181, 246, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: rgba(10, 25, 47, 0.98);
+                width: 100%;
+                text-align: center;
+                padding: 30px 0;
+                transition: var(--transisi);
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 15px 0;
+            }
+            
+            main {
+                padding: 100px 0 60px;
+            }
+            
+            .section-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-microchip logo-icon"></i>
+                    <div class="logo-text">InformatikaX</div>
+                </div>
+                <button class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item"><a href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li class="nav-item"><a href="tujuan.html" class="active"><i class="fas fa-bullseye"></i> Tujuan</a></li>
+                    <li class="nav-item"><a href="materi.html"><i class="fas fa-book-open"></i> Materi</a></li>
+                    <li class="nav-item"><a href="quis.html"><i class="fas fa-question-circle"></i> Quis</a></li>
+                    <li class="nav-item"><a href="tugas.html"><i class="fas fa-tasks"></i> Tugas</a></li>
+                    <li class="nav-item"><a href="profil.html"><i class="fas fa-user-graduate"></i> Profil Guru</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+    <div class="section-header">
+        <h1>Tujuan Pembelajaran</h1>
+        <p>Setelah mempelajari subbab ini, siswa diharapkan mampu:</p>
+    </div>
+    
+    <div class="tujuan-container">
+        <div class="tujuan-card">
+            <div class="tujuan-icon">
+                <i class="fas fa-microchip"></i>
+            </div>
+            <h3>1. Mengenal Perangkat Jaringan</h3>
+            <p>Mengenal perangkat jaringan dengan baik dan benar.</p>
+        </div>
+        <div class="tujuan-card">
+            <div class="tujuan-icon">
+                <i class="fas fa-ethernet"></i>
+            </div>
+            <h3>2. Konektivitas Jaringan Lokal</h3>
+            <p>Menerapkan konektivitas jaringan lokal dengan teliti dan benar.</p>
+        </div>
+        <div class="tujuan-card">
+            <div class="tujuan-icon">
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>3. Komunikasi Data via Ponsel</h3>
+            <p>Melakukan komunikasi data via ponsel dengan baik dan benar.</p>
+        </div>
+        <div class="tujuan-card">
+            <div class="tujuan-icon">
+                <i class="fas fa-network-wired"></i>
+            </div>
+            <h3>4. Konektivitas Internet Kabel</h3>
+            <p>Menerapkan konektivitas internet melalui jaringan kabel dengan baik dan benar.</p>
+        </div>
+        <div class="tujuan-card">
+            <div class="tujuan-icon">
+                <i class="fas fa-wifi"></i>
+            </div>
+            <h3>5. Konektivitas Internet Nirkabel</h3>
+            <p>Menerapkan konektivitas internet melalui jaringan nirkabel (bluetooth, wifi, internet) dengan teliti dan benar.</p>
+        </div>
+        <div class="tujuan-card">
+            <div class="tujuan-icon">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h3>6. Enkripsi Proteksi Data (Internet)</h3>
+            <p>Melakukan enkripsi untuk memproteksi data pada saat melakukan penyambungan perangkat ke jaringan internet yang tersedia dengan teliti dan benar.</p>
+        </div>
+        <div class="tujuan-card">
+            <div class="tujuan-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>7. Enkripsi Proteksi Data (Umum)</h3>
+            <p>Melakukan enkripsi untuk memproteksi data pada saat melakukan penyambungan.</p>
+        </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+        </a>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-microchip"></i> InformatikaX
+            </div>
+            <p>Media pembelajaran digital untuk SMK/MAK Kelas X Semester 1</p>
+            <p>Subbab 2: Jaringan Komputer dan Internet</p>
+            <div class="copyright">
+                &copy; 2026 SMK Negeri 1 Teknologi. All Rights Reserved.
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        hamburger.innerHTML = navMenu.classList.contains('active') ? 
+            '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+    
+    document.querySelectorAll('.nav-item a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+    });
+</script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda - Media Pembelajaran Informatika</title>
+    <title>Tugas - Media Pembelajaran Informatika</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -70,6 +70,7 @@
             font-weight: 700;
             background: linear-gradient(to right, var(--biru-tekno), var(--biru-highlight));
             background-clip: text;
+            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
@@ -109,92 +110,120 @@
             cursor: pointer;
         }
         
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
+        main {
+            padding: 120px 0 80px;
+            background: linear-gradient(to bottom, var(--biru-tua), #09172a);
+        }
+        
+        .section-header {
             text-align: center;
-            padding-top: 80px;
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 60px;
         }
         
-        .hero::before {
+        .section-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h1::after {
             content: "";
             position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(77,166,255,0.2) 0%, rgba(10,25,47,0) 70%);
-            top: -150px;
-            right: -100px;
-            border-radius: 50%;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: var(--biru-tekno);
+            border-radius: 2px;
         }
         
-        .hero::after {
-            content: "";
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(100,181,246,0.15) 0%, rgba(10,25,47,0) 70%);
-            bottom: -200px;
-            left: -150px;
-            border-radius: 50%;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, var(--putih), var(--biru-highlight));
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
+        .section-header p {
             color: var(--abu-abu);
-            margin-bottom: 30px;
             max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 20px auto 0;
+        }
+        
+        .tugas-card {
+            background: rgba(23, 42, 69, 0.7);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            border: 1px solid rgba(77, 166, 255, 0.3);
+        }
+        
+        .tugas-icon {
+            font-size: 4rem;
+            color: var(--biru-tekno);
+            margin-bottom: 25px;
+        }
+        
+        .deadline {
+            background: rgba(77, 166, 255, 0.2);
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 15px 0;
+            font-weight: 600;
+            color: var(--biru-highlight);
+        }
+        
+        .upload-area {
+            background: rgba(10, 25, 47, 0.6);
+            border: 2px dashed var(--biru-tekno);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 25px 0;
+            cursor: pointer;
+            transition: var(--transisi);
+        }
+        
+        .upload-area:hover {
+            background: rgba(77, 166, 255, 0.1);
+        }
+        
+        .upload-area i {
+            font-size: 3rem;
+            color: var(--biru-tekno);
+            margin-bottom: 15px;
         }
         
         .btn {
             display: inline-block;
             background: var(--biru-tekno);
             color: white;
-            padding: 12px 30px;
+            padding: 10px 25px;
             border-radius: 30px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             transition: var(--transisi);
+            margin-top: 15px;
             border: 2px solid var(--biru-tekno);
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
         }
         
         .btn:hover {
             background: transparent;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
         
-        .btn-outline {
-            background: transparent;
-            margin-left: 15px;
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: rgba(77, 166, 255, 0.2);
+            color: var(--biru-tekno);
+            padding: 8px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transisi);
         }
         
-        .btn-outline:hover {
-            background: var(--biru-tekno);
+        .back-btn:hover {
+            background: rgba(77, 166, 255, 0.3);
+            transform: translateX(-5px);
         }
         
         footer {
@@ -249,34 +278,16 @@
                 margin: 15px 0;
             }
             
-            .hero h1 {
-                font-size: 2.3rem;
+            main {
+                padding: 100px 0 60px;
             }
             
-            .hero p {
-                font-size: 1.1rem;
+            .section-header h1 {
+                font-size: 2.2rem;
             }
             
-            .btn-group {
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .btn-outline {
-                margin-left: 0;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
+            .tugas-card {
+                padding: 30px 20px;
             }
         }
     </style>
@@ -293,29 +304,51 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <ul class="nav-menu" id="nav-menu">
-                    <li class="nav-item"><a href="index.html" class="active"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li class="nav-item"><a href="index.html"><i class="fas fa-home"></i> Beranda</a></li>
                     <li class="nav-item"><a href="tujuan.html"><i class="fas fa-bullseye"></i> Tujuan</a></li>
                     <li class="nav-item"><a href="materi.html"><i class="fas fa-book-open"></i> Materi</a></li>
                     <li class="nav-item"><a href="quis.html"><i class="fas fa-question-circle"></i> Quis</a></li>
-                    <li class="nav-item"><a href="tugas.html"><i class="fas fa-tasks"></i> Tugas</a></li>
+                    <li class="nav-item"><a href="tugas.html" class="active"><i class="fas fa-tasks"></i> Tugas</a></li>
                     <li class="nav-item"><a href="profil.html"><i class="fas fa-user-graduate"></i> Profil Guru</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Jaringan Komputer dan Internet</h1>
-                <p>Media pembelajaran interaktif untuk mata pelajaran Informatika kelas X SMK/MAK semester 1 | kurikulum merdeka</p>
-                <div class="btn-group">
-                    <a href="materi.html" class="btn">Mulai Belajar</a>
-                    <a href="quis.html" class="btn btn-outline">Uji Pemahaman</a>
-                </div>
-            </div>
+    <main class="container">
+        <div class="section-header">
+            <h1>Tugas Praktik</h1>
+            <p>Tugas untuk mengasah kemampuan pemahaman konsep jaringan komputer</p>
         </div>
-    </section>
+        
+        <div class="tugas-card">
+            <div class="tugas-icon">
+                <i class="fas fa-search"></i>
+            </div>
+            <h3>Observasi Jenis Jaringan di Lingkungan Sekitar</h3>
+            <div class="deadline">Batas Waktu: 15 Januari 2026</div>
+            <p>Lakukan observasi di lingkungan sekitar Anda (rumah, sekolah, atau tempat umum) untuk mengidentifikasi jenis-jenis jaringan komputer yang ada. Dokumentasikan hasil observasi Anda dalam bentuk laporan tertulis.</p>
+            <ul style="text-align: left; max-width: 600px; margin: 20px auto; color: var(--abu-abu);">
+                <li>Identifikasi minimal 3 jenis jaringan (LAN, MAN, WAN) di lingkungan sekitar</li>
+                <li>Dokumentasikan perangkat jaringan yang digunakan pada setiap jenis jaringan</li>
+                <li>Jelaskan fungsi dan kegunaan dari setiap jaringan yang Anda temukan</li>
+                <li>Sertakan foto dokumentasi (jika memungkinkan) atau gambar sketsa jaringan</li>
+                <li>Analisis kelebihan dan kekurangan dari setiap jenis jaringan yang Anda temukan</li>
+            </ul>
+            <div class="upload-area" onclick="document.getElementById('file-upload').click()">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Klik untuk mengunggah file tugas Anda</p>
+                <input type="file" id="file-upload" style="display: none;">
+            </div>
+            <a href="#" class="btn">Lihat Panduan Tugas</a>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+            </a>
+        </div>
+    </main>
 
     <footer>
         <div class="container">
@@ -323,10 +356,10 @@
                 <div class="footer-logo">
                     <i class="fas fa-microchip"></i> InformatikaX
                 </div>
-                <p>Media pembelajaran untuk SMK Kelas X Semester 1</p>
-                <p>Jaringan Komputer dan Internet</p>
+                <p>Media pembelajaran digital untuk SMK/MAK Kelas X Semester 1</p>
+                <p>Subbab A: Mengenal Jaringan</p>
                 <div class="copyright">
-                    &copy; 2026 SMK Negeri 1 Teknologi. 
+                    &copy; 2026 SMK Negeri 1 Teknologi. All Rights Reserved.
                 </div>
             </div>
         </div>
@@ -347,6 +380,15 @@
                 navMenu.classList.remove('active');
                 hamburger.innerHTML = '<i class="fas fa-bars"></i>';
             });
+        });
+        
+        document.getElementById('file-upload').addEventListener('change', function(e) {
+            if(this.files.length > 0) {
+                const fileName = this.files[0].name;
+                const uploadArea = document.querySelector('.upload-area');
+                uploadArea.innerHTML = `<i class="fas fa-check-circle" style="color: #4da6ff;"></i><p>File "${fileName}" berhasil diunggah!</p>`;
+                uploadArea.style.backgroundColor = 'rgba(40, 167, 69, 0.15)';
+            }
         });
     </script>
 </body>
